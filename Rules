@@ -21,21 +21,21 @@ route '/sass/*/' do
 end
 
 # Create main.css from main.scss
-compile '/sass/main', :rep => :css do
+compile '/sass/main/', :rep => :css do
   filter :sass, syntax: :scss
 end
 
-route '/sass/main', :rep => :css do
+route '/sass/main/', :rep => :css do
   '/css/main.css'
 end
 
 # Also create a minified main.min.css
-compile '/sass/main', :rep => :minified do
+compile '/sass/main/', :rep => :minified do
   filter :sass, syntax: :scss
   filter :rainpress
 end
 
-route '/sass/main', :rep => :minified do
+route '/sass/main/', :rep => :minified do
   '/css/main.min.css'
 end
 
@@ -48,19 +48,19 @@ route '/js/*/' do
 end
 
 # Also create minified js files for main.js and plugins.js
-compile '/js/main', :rep => :minified do
+compile '/js/main/', :rep => :minified do
   filter :yui_compressor, :type => :js 
 end
 
-route '/js/main', :rep => :minified do
+route '/js/main/', :rep => :minified do
   item.identifier.chop + '.min.' + item[:extension]
 end
 
-compile '/js/plugins', :rep => :minified do
+compile '/js/plugins/', :rep => :minified do
   filter :yui_compressor, :type => :js 
 end
 
-route '/js/plugins', :rep => :minified do
+route '/js/plugins/', :rep => :minified do
   item.identifier.chop + '.min.' + item[:extension]
 end
 
@@ -94,7 +94,7 @@ compile '/404/' do
   filter :relativize_paths, :type => :html
 end
 
-route '/404' do
+route '/404/' do
   '/404.html'
 end
 
