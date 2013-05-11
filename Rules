@@ -14,10 +14,10 @@
 #   because “*” matches zero or more characters.
 
 # Do nothing to /sass/, to ignore any partials
-compile '/sass/' do
+compile '/sass/*/' do
 end
 
-route '/sass/' do
+route '/sass/*/' do
 end
 
 # Create main.css from main.scss
