@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+gem "cri"
+gem "mime-types"
+gem "rack"
 gem "rainpress"
 gem "yui-compressor"
 gem "nanoc"
