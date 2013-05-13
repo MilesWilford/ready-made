@@ -1,4 +1,6 @@
+source 'https://rubygems.org'
 gem "rainpress"
 gem "yui-compressor"
 gem "nanoc"
 gem "sass"
+gem "nokogiri"
