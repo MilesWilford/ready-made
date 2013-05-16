@@ -103,9 +103,18 @@ compile '*' do
   if item.binary?
     # don’t filter binary items
   else
-    filter :erb
-    layout 'default'
-    filter :relativize_paths, :type => :html
+    case item[:extension]
+    when 'html'
+      filter :erb
+      layout 'default'
+      filter :relativize_paths, :type => :html
+    when 'md'
+      filter :kramdown
+      layout 'default'
+      filter :relativize_paths, :type => :html
+    else
+
+    end
   end
 end
 
