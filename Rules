@@ -18,6 +18,7 @@ compile '/sass/*/' do
 end
 
 route '/sass/*/' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
 # Create main.css from main.scss
@@ -47,28 +48,27 @@ route '/js/*/' do
   item.identifier.chop + '.' + item[:extension]
 end
 
-# Also create minified js files for main.js and plugins.js
-compile '/js/main/', :rep => :minified do
-  filter :yui_compressor, :type => :js 
+# Minify all js
+## But ignore /vendor/ folder
+compile '/js/vendor/*/', :rep => :minified do
 end
 
-route '/js/main/', :rep => :minified do
-  item.identifier.chop + '.min.' + item[:extension]
+route '/js/vendor/*/', :rep => :minified do
 end
 
-compile '/js/plugins/', :rep => :minified do
-  filter :yui_compressor, :type => :js 
+compile '/js/*/', :rep => :minified do
+  filter :yui_compressor, :type => :js
 end
 
-route '/js/plugins/', :rep => :minified do
+route '/js/*/', :rep => :minified do
   item.identifier.chop + '.min.' + item[:extension]
 end
 
 # Move raw images
-compile '/img/*' do
+compile '/img/*/' do
 end
 
-route '/img/*' do
+route '/img/*/' do
   item.identifier.chop + '.' + item[:extension]
 end
 
