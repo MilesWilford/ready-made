@@ -1,5 +1,5 @@
 ---
-title: HTML5 Boilerplate Nanoc
+title: HTML5 Boilerplate Nanoc -- Markdown Example
 ---
 
 Hello world! This is an example of *markdown* interpretation.
