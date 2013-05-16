@@ -91,6 +91,7 @@ end
 compile '/404/' do
   filter :erb
   layout 'default'
+  filter :rubypants
   filter :relativize_paths, :type => :html
 end
 
@@ -106,15 +107,14 @@ compile '*' do
     case item[:extension]
     when 'html'
       filter :erb
-      layout 'default'
-      filter :relativize_paths, :type => :html
     when 'md'
       filter :kramdown
-      layout 'default'
-      filter :relativize_paths, :type => :html
     else
 
     end
+    layout 'default'
+    filter :rubypants
+    filter :relativize_paths, :type => :html
   end
 end
 
