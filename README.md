@@ -23,12 +23,14 @@ root directory.
 
 Nanoc is configured with a number of rules to do the following:
 
-* Use relative URLs for HTML
-* Do not compile/route `humans.txt`, `robots.txt`, `404.html`
-* Do not compile/route JS *except* for `main.js` and `plugins.js`,
-which will be copied over and *also* minified.
-* Do not compile/route contents of `/img/`
-* Interpret the SCSS of `main.scss` using SASS
+* Use relative URLs for HTML.
+* Use RubyPants to improve punctuation.
+* Intrepret either `.html` files or `.md` files using erb and kramdown respectively.
+* Do not route `humans.txt`, `robots.txt`, `404.html`.
+* Copy everything in `/js/` and also provide a minified representation, exclusing `/js/vendors/`.
+* Do not compile/route contents of `/img/`.
+* Interpret the SCSS of `main.scss` (and ONLY main.scss) using SASS.
+* Copy the bare SCSS for reference.
 
 The CSS is modified to use SASS and exist in a single stylesheet.
 

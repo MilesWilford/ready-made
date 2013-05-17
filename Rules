@@ -64,7 +64,7 @@ route '/js/*/', :rep => :minified do
   item.identifier.chop + '.min.' + item[:extension]
 end
 
-# Move raw images
+# Move raw images.  This probably isn't necessary since they're binary?
 compile '/img/*/' do
 end
 
@@ -87,7 +87,7 @@ route '/robots/' do
   '/robots.txt'
 end
 
-# Do nothing to 404.html
+# Compile but do not subdirectory 404.html
 compile '/404/' do
   filter :erb
   layout 'default'
@@ -104,6 +104,7 @@ compile '*' do
   if item.binary?
     # don’t filter binary items
   else
+    # this seems to work fine.
     case item[:extension]
     when 'html'
       filter :erb
