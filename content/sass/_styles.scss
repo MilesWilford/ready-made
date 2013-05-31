@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    $TABLE OF CONTENTS
+\*------------------------------------*/
+
+/*
+ * TABLE OF CONTENTS - This
+ * EXPLANATION....Explains element v layout v module v state
+ * ELEMENTS.......styles applied to top-level elements
+ * LAYOUTS........styles to generate high-level layouts
+ * MODULES........complete "chunks" of formatting to drop into layouts
+ * STATES.........temporary states
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $EXPLANATION
+\*------------------------------------*/
+
+/*
+ * An element is a direct element you're acting on.
+ * If you want to give all nav li a default style,
+ * or apply stuff to the body, it goes there.
+ *
+ * A layout is the content a module goes in.  Layouts should
+ * contain positioning information & width definitions, but
+ * shouldn't be directly styling stuff themselves.
+ *
+ * A module styles the element.  Modules should not define widths
+ * or positioning.  They should be completely portable.
+ *
+ * A state is something temporary, like a hover or JS interaction
+ *
+ * For media queries, use @include respond-to('device')
+ * or use the appropriate bp partial.  Media queries should be
+ * mostly only affecting LAYOUTS, though in some cases may be
+ * relevant to STATES (e.g., no hover on mobile phones)
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $ELEMENTS
+\*------------------------------------*/
+
+
+
+
+
+
+/*------------------------------------*\
+    $LAYOUTS
+\*------------------------------------*/
+//  .block{}
+
+
+
+
+
+/*------------------------------------*\
+    $MODULES
+\*------------------------------------*/
+//  .block__element{}
+
+
+
+
+
+/*------------------------------------*\
+    $STATES
+\*------------------------------------*/
+// .block--modifier{}
+// .js-state{}
+
+
+
+
