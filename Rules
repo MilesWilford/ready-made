@@ -13,11 +13,12 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-# Do nothing to /sass/, to ignore any partials
+# Do nothing to /sass/, to ignore any partials.
 compile '/sass/*/' do
 end
 
 route '/sass/*/' do
+  # Comment out the next line to remove /sass/ folder from output
   item.identifier.chop + '.' + item[:extension]
 end
 
