@@ -9,20 +9,20 @@
 \*------------------------------------*/
 
 /*
- * TABLE OF CONTENTS - This
- * NORMALIZE.......normalize.css is used as this framework's reset
- * CLEARFIX........a placeholder class %clearfix taken from HTML5 boilerplate
- * HELPER MIXINS...a few select helper mixins
- * PREFIX MIXINS...mixins designed for dealing with browser prefixes
- * USER STYLES.....the important stuff.
- * HELPER CLASSES..helper classes preserved from HTML5 boilerplate
- * MEDIA QUERIES...breakpoints and print styles
- *  -------------->breakpoint definitions
- *  -------------->narrow desktop
- *  -------------->tablet
- *  -------------->mobile phone
- *  -------------->print
- * SHAME...........troubleshooting stuff.  Should be empty on deployment.
+ * TABLE OF CONTENTS .. This
+ * NORMALIZE .......... normalize.css is used as this framework's reset
+ * CLEARFIX ........... a placeholder class %clearfix taken from HTML5 boilerplate
+ * PREFIX MIXINS ...... mixins designed for dealing with browser prefixes
+ * HELPER MIXINS ...... a few select helper mixins
+ * USER STYLES ........ the important stuff.
+ * HELPER CLASSES ..... helper classes preserved from HTML5 boilerplate
+ * MEDIA QUERIES ...... breakpoints and print styles
+ *  ------------------> breakpoint definitions
+ *  ------------------> narrow desktop
+ *  ------------------> tablet
+ *  ------------------> mobile phone
+ *  ------------------> print
+ * SHAME .............. troubleshooting stuff.  Should be empty on deployment.
  */
 
 
@@ -50,20 +50,20 @@
 
 
 /*------------------------------------*\
-    $HELPER MIXINS
+    $PREFIX MIXINS
 \*------------------------------------*/
 
-@import "mixins";
+@import "prefix";
 
 
 
 
 
 /*------------------------------------*\
-    $PREFIX MIXINS
+    $HELPER MIXINS
 \*------------------------------------*/
 
-@import "prefix";
+@import "mixins";
 
 
 

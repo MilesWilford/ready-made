@@ -1,0 +1,118 @@
+/*
+ * Experimental prefix generators
+ *
+ * Both default to ON for all prefixes, but any prefix can be selectively disabled.
+ *
+ * contains:
+ *
+ * PREFIXES
+ * experimental-property
+ * experimental-value
+ *
+ * FLEXIBLE BOXES
+ * display-flexbox
+ * align-items & box-align
+ * flex
+ * flex-order & box-ordinal-group
+ * flex-direction
+ *
+ * BORDER RADIUS
+ * border-radius
+ */
+
+// $PREFIXES
+@mixin experimental-property($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $no-prefix: true) {
+  $property: unquote($property);
+  $value: unquote($value);
+
+  @if $webkit {
+    -webkit-#{$property}: #{$value};
+  }
+  @if $moz {
+    -moz-#{$property}: #{$value};
+  }
+  @if $ms {
+    -ms-#{$property}: #{$value};
+  }
+  @if $o {
+    -o-#{$property}: #{$value};
+  }
+  @if $no-prefix {
+    #{$property}: #{$value}
+  }
+}
+
+@mixin experimental-value($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $no-prefix: true) {
+  $property: unquote($property);
+  $value: unquote($value);
+
+  @if $webkit {
+    #{$property}: -webkit-#{$value};
+  }
+  @if $moz {
+    #{$property}: -moz-#{$value};
+  }
+  @if $ms {
+    #{$property}: -ms-#{$value};
+  }
+  @if $o {
+    #{$property}: -o-#{$value};
+  }
+  @if $no-prefix {
+    #{$property}: #{$value}
+  }
+}
+
+// $FLEXIBLE BOXES
+// Flexible boxes are a gigantic mess.  Here's my attempt at thorough browser support
+
+@mixin display-flexbox {
+  @include experimental-value(display, box, $ms: false, $o: false, $no-prefix: false);
+  @include experimental-value(display, flexbox, $webkit: false, $o: false, $moz: false, $no-prefix: false);
+  @include experimental-value(display, flex, $moz: false, $ms: false, $o: false);
+}
+
+@mixin align-items($to) {
+  $to: unquote($to);
+
+  @include experimental-property(box-align, $to, $o: false, $ms: false, $no-prefix: false);
+  @include experimental-property(flex-align, $to, $webkit: false, $moz: false, $o: false, $no-prefix: false);
+  @include experimental-property(align-items, $to, $moz: false, $o: false, $ms: false);
+}
+  //align-items alias using the old property name
+  @mixin box-align($to) {
+    @include align-items($to);
+  }
+
+@mixin flex($n) {
+  @include experimental-property(box-flex, $n, $no-prefix: false);
+  flex: $n;
+}
+
+@mixin flex-order($n) {
+  @include experimental-property(box-ordinal-group, $n, $no-prefix: false);
+  @include experimental-property(flex-order, $n, $webkit: false, $o: false, $moz: false, $no-prefix: false);
+  order: $n;
+}
+
+  // flex-order alias using old property name
+  @mixin box-ordinal-group($n) {
+    @include flex-order($n);
+  }
+
+@mixin flex-direction($direction) {
+  $direction: quote($direction);
+
+  @if ($direction == "row") or ($direction == "horizontal") {
+    @include experimental-property(box-orient, horizontal);
+    flex-direction: row;
+  } @else if ($direction == "column") or ($direction == "vertical") {
+    @include experimental-property(box-orient, vertical);
+    flex-direction: column;
+  }
+}
+
+// $BORDER RADIUS
+@mixin border-radius($sizes...) {
+  @include experimental-property(border-radius, $sizes);
+}
