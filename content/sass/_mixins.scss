@@ -1,0 +1,23 @@
+/*
+ * helper mixin table of contents
+ *
+ * BULLETPROOF FONT FACE
+ * font-face
+ *
+ */
+
+// Feed this mixin the font name and the font src WITHOUT a file extension.
+// The following file extensions must be available: .eot, .woff, .ttf, .svg
+@mixin font-face($font-name, $font-src) {
+  $font-name: quote($font-name);
+  $font-src: unquote($font-src);
+
+  @font-face {
+    font-family: $font-name;
+    src:
+        url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-src}.woff') format('woff'),
+        url('#{$font-src}.ttf')  format('truetype'),
+        url('#{$font-src}.svg#svgFontName') format('svg');
+  }
+}

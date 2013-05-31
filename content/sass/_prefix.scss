@@ -1,9 +1,5 @@
 /*
- * Experimental prefix generators
- *
- * Both default to ON for all prefixes, but any prefix can be selectively disabled.
- *
- * contains:
+ * prefix mixins table of contents
  *
  * PREFIXES
  * experimental-property
@@ -18,47 +14,59 @@
  *
  * BORDER RADIUS
  * border-radius
+ *
+ * BOX SIZING
+ * box-sizing
+ *
+ * TRANSITION
+ * transition
  */
 
 // $PREFIXES
-@mixin experimental-property($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $no-prefix: true) {
+// Experimental prefix generators
+//
+// Both default to ON for all prefixes, but any prefix can be selectively disabled
+
+@mixin experimental-property($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $official: true) {
   $property: unquote($property);
   $value: unquote($value);
 
-  @if $webkit {
+  @if $webkit and $webkit != "no webkit" {
     -webkit-#{$property}: #{$value};
   }
-  @if $moz {
+  @if $moz and $moz != "no moz" {
     -moz-#{$property}: #{$value};
   }
-  @if $ms {
+  @if $ms and $ms != "no ms" {
     -ms-#{$property}: #{$value};
   }
-  @if $o {
-    -o-#{$property}: #{$value};
-  }
-  @if $no-prefix {
+  // I've elected to remove Opera from this mixin since it uses webkit now.
+  // @if $o and $o != "no o" {
+    // -o-#{$property}: #{$value};
+  // }
+  @if $official and $official != "no official" {
     #{$property}: #{$value}
   }
 }
 
-@mixin experimental-value($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $no-prefix: true) {
+@mixin experimental-value($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $official: true) {
   $property: unquote($property);
   $value: unquote($value);
 
-  @if $webkit {
+  @if $webkit and $webkit != "no webkit" {
     #{$property}: -webkit-#{$value};
   }
-  @if $moz {
+  @if $moz and $moz != "no moz" {
     #{$property}: -moz-#{$value};
   }
-  @if $ms {
+  @if $ms and $ms != "no ms" {
     #{$property}: -ms-#{$value};
   }
-  @if $o {
-    #{$property}: -o-#{$value};
-  }
-  @if $no-prefix {
+  // I've elected to remove Opera from this mixin since it uses webkit now.
+  // @if $o and $o != "no o" {
+    // #{$property}: -o-#{$value};
+  // }
+  @if $official and $official != "no official" {
     #{$property}: #{$value}
   }
 }
@@ -67,17 +75,21 @@
 // Flexible boxes are a gigantic mess.  Here's my attempt at thorough browser support
 
 @mixin display-flexbox {
-  @include experimental-value(display, box, $ms: false, $o: false, $no-prefix: false);
-  @include experimental-value(display, flexbox, $webkit: false, $o: false, $moz: false, $no-prefix: false);
-  @include experimental-value(display, flex, $moz: false, $ms: false, $o: false);
+  @include experimental-value(display, box, "webkit", "moz", "no ms", "no o", "no official");
+  @include experimental-value(display, flexbox, "no webkit", "no moz", "ms", "no o", "no official");
+  @include experimental-value(display, flex, "webkit", "no moz", "no ms", "no o", "official");
+}
+
+#TEST_MIXIN {
+  @include display-flexbox;
 }
 
 @mixin align-items($to) {
   $to: unquote($to);
 
-  @include experimental-property(box-align, $to, $o: false, $ms: false, $no-prefix: false);
-  @include experimental-property(flex-align, $to, $webkit: false, $moz: false, $o: false, $no-prefix: false);
-  @include experimental-property(align-items, $to, $moz: false, $o: false, $ms: false);
+  @include experimental-property(box-align, $to, "webkit", "moz", "no ms", "no o", "no official");
+  @include experimental-property(flex-align, $to, "no webkit", "no moz", "ms", "no o", "no official");
+  @include experimental-property(align-items, $to, "webkit", "no moz", "no ms", "no o", "official");
 }
   //align-items alias using the old property name
   @mixin box-align($to) {
@@ -85,13 +97,19 @@
   }
 
 @mixin flex($n) {
-  @include experimental-property(box-flex, $n, $no-prefix: false);
+  @include experimental-property(box-flex, $n,
+    $o: false,
+    $official: false
+  );
   flex: $n;
 }
 
 @mixin flex-order($n) {
-  @include experimental-property(box-ordinal-group, $n, $no-prefix: false);
-  @include experimental-property(flex-order, $n, $webkit: false, $o: false, $moz: false, $no-prefix: false);
+  @include experimental-property(box-ordinal-group, $n,
+    $o: false,
+    $official: false
+  );
+  @include experimental-property(flex-order, $n, "no webkit", "no moz", "ms", "no o", "no official");
   order: $n;
 }
 
@@ -104,10 +122,10 @@
   $direction: quote($direction);
 
   @if ($direction == "row") or ($direction == "horizontal") {
-    @include experimental-property(box-orient, horizontal);
+    @include experimental-property(box-orient, horizontal, $o: false);
     flex-direction: row;
   } @else if ($direction == "column") or ($direction == "vertical") {
-    @include experimental-property(box-orient, vertical);
+    @include experimental-property(box-orient, vertical, $o: false);
     flex-direction: column;
   }
 }
@@ -115,4 +133,15 @@
 // $BORDER RADIUS
 @mixin border-radius($sizes...) {
   @include experimental-property(border-radius, $sizes);
+}
+
+// $BOX SIZING
+@mixin box-sizing($type) {
+  $type: unquote($type);
+  @include experimental-property(box-sizing, $type);
+}
+
+// $TRANSITION (ALL-IN-ONE)
+@mixin transition($type...) {
+  @include experimental-property(transition, $type);
 }
