@@ -1,5 +1,10 @@
 /*
+ * Note that many of these mixins are inspired by sources around the web.  I would like to
+ * particularly acknoledge http://css-tricks.com/using-flexbox/ and Compass for inspiration
+ *
  * prefix mixins table of contents
+ *
+ * NO BORDER-RADIUS OR BOX SHADOW
  *
  * PREFIXES
  * experimental-property
@@ -12,9 +17,6 @@
  * flex-order & box-ordinal-group
  * flex-direction
  *
- * BORDER RADIUS
- * border-radius
- *
  * BOX SIZING
  * box-sizing
  *
@@ -22,11 +24,17 @@
  * transition
  */
 
+// $NO BORDER-RADIUS OR BOX SHADOW
+//
+// This deserves an explicit comment.  I am including NO border-radius or box-shadow mixin
+// as part of the prefix file because, in my eyes, it is *not necessary*.  border-radius
+// and box-shadow are very well-supported, and fallback is not critical to their functioning
+
 // $PREFIXES
 // Experimental prefix generators
 //
 // Both default to ON for all prefixes, but any prefix can be selectively disabled
-// Both accept either $key: bool pairs OR ordered strongs (webkit, moz, ms, o, official);
+// Both accept either $key: bool pairs OR ordered strongs ("webkit", "moz", "ms", "o", "official");
 
 @mixin experimental-property($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $official: true) {
   $property: unquote($property);
@@ -119,11 +127,6 @@
     @include experimental-property(box-orient, vertical);
     flex-direction: column;
   }
-}
-
-// $BORDER RADIUS
-@mixin border-radius($sizes...) {
-  @include experimental-property(border-radius, $sizes);
 }
 
 // $BOX SIZING
