@@ -20,23 +20,22 @@
 \*------------------------------------*/
 
 /*
- * An element is a direct element you're acting on.
- * If you want to give all nav li a default style,
- * or apply stuff to the body, it goes there.
+ * An element is a direct element you're acting on. (e.g., h1, body, html)
  *
- * A layout is the content a module goes in.  Layouts should
+ * A layout is the 'shelf' a module goes in.  Layouts should
  * contain positioning information & width definitions, but
- * shouldn't be directly styling stuff themselves.
+ * should be content-agnostic.
  *
  * A module styles the element.  Modules should not define widths
- * or positioning.  They should be completely portable.
+ * or positioning.  They should be completely portable.  Dropping a module
+ * into any layout item should produce a good effect, within reason.
  *
  * A state is something temporary, like a hover or JS interaction
  *
  * For media queries, use @include respond-to('device')
- * or use the appropriate bp partial.  Media queries should be
+ * or use the appropriate _bp partial.  Media queries should be
  * mostly only affecting LAYOUTS, though in some cases may be
- * relevant to STATES (e.g., no hover on mobile phones)
+ * relevant to STATES (e.g., no hover on mobile phones).
  */
 
 
