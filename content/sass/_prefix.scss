@@ -137,5 +137,5 @@
 
 // $TRANSITION (ALL-IN-ONE)
 @mixin transition($type...) {
-  @include experimental-property(transition, $type);
+  @include experimental-property(transition, $type, "webkit", "moz", "no ms", "no o", "official");
 }
