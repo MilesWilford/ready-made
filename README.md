@@ -1,10 +1,12 @@
-Modified HTML5 Boilerplate Kickstart for Nanoc using SASS
+Modified HTML5 Boilerplate Kickstart for nanoc using SASS
 ==========
 Miles Wilford
 
+This project has grown practically into a full framework, but whatever.
+
 This is the "default" static site project I use with nanoc.
-It's built off of an HTML5 Boilerplate via Initilizer with t
-he following settings:
+It's built off of an HTML5 Boilerplate via Initilizer with
+the following settings:
 
 No HTML/CSS Template
 * Just HTML5shiv
@@ -21,7 +23,7 @@ relativize_paths in nanoc as well as the SASS stylesheet.  The
 non-ajax jQuery fallback will not work if the site is not in the
 root directory.
 
-Nanoc is configured with a number of rules to do the following:
+nanoc is configured with a number of rules to do the following:
 
 * Use relative URLs for HTML/md.
 * Use RubyPants to improve punctuation.
