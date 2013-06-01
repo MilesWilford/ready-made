@@ -7,8 +7,8 @@
  *
  * FLEXIBLE BOXES
  * display-flexbox
- * align-items & box-align
  * flex
+ * align-items & box-align
  * flex-order & box-ordinal-group
  * flex-direction
  *
@@ -26,6 +26,7 @@
 // Experimental prefix generators
 //
 // Both default to ON for all prefixes, but any prefix can be selectively disabled
+// Both accept either $key: bool pairs OR ordered strongs (webkit, moz, ms, o, official);
 
 @mixin experimental-property($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $official: true) {
   $property: unquote($property);
@@ -80,8 +81,9 @@
   @include experimental-value(display, flex, "webkit", "no moz", "no ms", "no o", "official");
 }
 
-#TEST_MIXIN {
-  @include display-flexbox;
+@mixin flex($n) {
+  @include experimental-property(box-flex, $n, "webkit", "moz", "no ms", "no o", "no official");
+  @include experimental-property(flex, $n, "webkit", "no moz", "ms", "no o", "official");
 }
 
 @mixin align-items($to) {
@@ -96,21 +98,10 @@
     @include align-items($to);
   }
 
-@mixin flex($n) {
-  @include experimental-property(box-flex, $n,
-    $o: false,
-    $official: false
-  );
-  flex: $n;
-}
-
 @mixin flex-order($n) {
-  @include experimental-property(box-ordinal-group, $n,
-    $o: false,
-    $official: false
-  );
+  @include experimental-property(box-ordinal-group, $n, "webkit", "moz", "no ms", "no o", "no official");
   @include experimental-property(flex-order, $n, "no webkit", "no moz", "ms", "no o", "no official");
-  order: $n;
+  @include experimental-property(order, $n, "webkit", "no moz", "no ms", "no o", "official");
 }
 
   // flex-order alias using old property name
@@ -122,10 +113,10 @@
   $direction: quote($direction);
 
   @if ($direction == "row") or ($direction == "horizontal") {
-    @include experimental-property(box-orient, horizontal, $o: false);
+    @include experimental-property(box-orient, horizontal);
     flex-direction: row;
   } @else if ($direction == "column") or ($direction == "vertical") {
-    @include experimental-property(box-orient, vertical, $o: false);
+    @include experimental-property(box-orient, vertical);
     flex-direction: column;
   }
 }
