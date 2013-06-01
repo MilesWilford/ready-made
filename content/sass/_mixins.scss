@@ -15,9 +15,9 @@
   @font-face {
     font-family: $font-name;
     src:
-        url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
-        url('#{$font-src}.woff') format('woff'),
-        url('#{$font-src}.ttf')  format('truetype'),
+        url('#{$font-src}.eot?#iefix')      format('embedded-opentype'),
+        url('#{$font-src}.woff')            format('woff'),
+        url('#{$font-src}.ttf')             format('truetype'),
         url('#{$font-src}.svg#svgFontName') format('svg');
   }
 }
