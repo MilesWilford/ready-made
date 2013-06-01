@@ -12,6 +12,8 @@
  * TABLE OF CONTENTS .. This
  * NORMALIZE .......... normalize.css is used as this framework's reset
  * CLEARFIX ........... a placeholder class %clearfix taken from HTML5 boilerplate
+ * SETTINGS ........... contains SCSS settings, notably breakpoints
+ *   --> breakpoints
  * PREFIX MIXINS ...... mixins designed for dealing with browser prefixes
  * HELPER MIXINS ...... a few select helper mixins
  * USER STYLES ........ the important stuff.
@@ -23,7 +25,6 @@
  *   --> STATES
  * HELPER CLASSES ..... helper classes preserved from HTML5 boilerplate
  * MEDIA QUERIES ...... breakpoints and print styles
- *   --> breakpoint definitions
  *   --> narrow desktop
  *   --> tablet
  *   --> mobile phone
@@ -50,6 +51,17 @@
 \*------------------------------------*/
 
 @import "clearfix";
+
+
+
+
+
+/*------------------------------------*\
+    $SETTINGS
+\*------------------------------------*/
+
+// This partial defines default breakpoints and the @respond-to mixin
+@import "breakpoints";
 
 
 
@@ -98,9 +110,6 @@
 /*------------------------------------*\
     $MEDIA QUERIES
 \*------------------------------------*/
-
-// This partial defines default breakpoints and @respond-to mixin
-@import "breakpoints";
 
 // This partial contains styles for a narrow desktop
 @media screen and (max-width: $bp-narrow-desktop - 1px) {
