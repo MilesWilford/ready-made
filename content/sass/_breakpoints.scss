@@ -18,6 +18,7 @@ $bp-mobile-phone: 480px !default;
       @content;
     }
   } @else {
+    $what: unquote($what);
     @media only screen and ($what) {
       @content;
     }
