@@ -112,7 +112,8 @@ compile '*' do
     when 'md'
       filter :kramdown
     else
-
+      # if not .html or .md, assume it was markdown
+      filter :kramdown
     end
     layout 'default'
     filter :rubypants
