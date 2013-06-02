@@ -11,7 +11,6 @@
 /*
  * TABLE OF CONTENTS .. This
  * NORMALIZE .......... normalize.css is used as this framework's reset
- * CLEARFIX ........... a placeholder class %clearfix taken from HTML5 boilerplate
  * SETTINGS ........... contains SCSS settings, notably breakpoints
  *   --> breakpoints
  * PREFIX MIXINS ...... mixins designed for dealing with browser prefixes
@@ -41,16 +40,6 @@
 \*------------------------------------*/
 
 @import "normalize";
-
-
-
-
-
-/*------------------------------------*\
-    $CLEARFIX
-\*------------------------------------*/
-
-@import "clearfix";
 
 
 

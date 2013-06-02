@@ -1,3 +1,4 @@
+// Chrome Frame
 .chromeframe {
   margin: 0.2em 0;
   background: #ccc;
@@ -5,6 +6,23 @@
   padding: 0.2em 0;
 }
 
+// Clearfix
+%clearfix {
+  *zoom: 1;
+
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/* Helper classes */
+
+// Image-replacement
 .ir {
   background-color: transparent;
   border: 0;
@@ -19,11 +37,13 @@
   }
 }
 
+// Hider
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
+// Display but no DOM hide
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -34,6 +54,7 @@
   position: absolute;
   width: 1px;
 
+  // Still should show up in tab order/focus
   &.focusable {
     &:active, &:focus {
       clip: auto;
@@ -46,6 +67,7 @@
   }
 }
 
+// Invisibility
 .invisible {
   visibility: hidden;
 }
