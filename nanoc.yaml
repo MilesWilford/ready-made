@@ -22,7 +22,7 @@ enable_output_diff: false
 prune:
   # Whether to automatically remove files not managed by nanoc from the output
   # directory. For safety reasons, this is turned off by default.
-  auto_prune: false
+  auto_prune: true
 
   # Which files and directories you want to exclude from pruning. If you version
   # your output directory, you should probably exclude VCS directories such as
@@ -58,6 +58,9 @@ data_sources:
     # it will become “/about.html/” instead.
     allow_periods_in_identifiers: false
 
+    # Force UTF-8 encoding always.
+    encoding: utf-8
+
 # Configuration for the “watch” command, which watches a site for changes and
 # recompiles if necessary.
 watcher:
@@ -75,8 +78,3 @@ watcher:
   # When to send notifications (using Growl or notify-send).
   notify_on_compilation_success: true
   notify_on_compilation_failure: true
-
-data_sources:
-  -
-    type: filesystem_unified
-    encoding: utf-8
