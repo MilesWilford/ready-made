@@ -81,6 +81,17 @@ table {
     &:last-of-type { border-right: 0; }
   }
 
+dl {}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: 1em;
+}
+
 h1 {}
 h2 {}
 h3 {}
