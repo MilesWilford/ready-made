@@ -13,8 +13,9 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-# Do nothing to /sass/, to ignore any partials.
+# Do nothing to /sass/ contents for raw sass copying
 compile '/sass/*' do
+  nil
 end
 
 route '/sass/*' do
@@ -43,6 +44,7 @@ end
 
 # Move raw js files
 compile '/js/*' do
+  nil
 end
 
 route '/js/*' do
@@ -50,15 +52,14 @@ route '/js/*' do
 end
 
 # Minify all js
-## But ignore /vendor/ folder
-compile '/js/vendor/*/', :rep => :minified do
-end
-
-route '/js/vendor/*/', :rep => :minified do
-end
 
 compile '/js/*/', :rep => :minified do
   filter :yui_compressor, :type => :js
+end
+
+## But discard contents of /vendor/ folder which were minified from the start
+route '/js/vendor/*/', :rep => :minified do
+  nil
 end
 
 route '/js/*/', :rep => :minified do
@@ -67,6 +68,7 @@ end
 
 # Move raw images.  This probably isn't necessary since they're binary?
 compile '/img/*/' do
+  nil
 end
 
 route '/img/*/' do
@@ -75,6 +77,7 @@ end
 
 # Do nothing to humans.txt, robots.txt
 compile %r{/(humans)|(robots)/} do
+  nil
 end
 
 route %r{/(humans)|(robots)/} do
