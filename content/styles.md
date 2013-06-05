@@ -9,6 +9,11 @@ title: Default styling
 
 </nav>
 
+Navigation elements
+=============
+You can already see them in the two navigation elements above, which
+are `<nav>` elements that contain unordered lists.
+
 Tables  {#tables}
 =============
 
@@ -30,3 +35,5 @@ Item 2
 
 Item 3
 :  Some description for item 3
+
+
