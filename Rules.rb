@@ -14,11 +14,11 @@
 #   because “*” matches zero or more characters.
 
 # Do nothing to /sass/ contents for raw sass copying
-compile '/sass/*' do
+compile '/sass/*/' do
   nil
 end
 
-route '/sass/*' do
+route '/sass/*/' do
   # Comment out the next line to remove /sass/ folder from output
   item.identifier.chop + '.' + item[:extension]
 end
@@ -67,13 +67,13 @@ route '/js/*/', :rep => :minified do
 end
 
 # Move raw images.  This probably isn't necessary since they're binary?
-compile '/img/*/' do
-  nil
-end
+#compile '/img/*/' do
+#  nil
+#end
 
-route '/img/*/' do
-  item.identifier.chop + '.' + item[:extension]
-end
+#route '/img/*/' do
+#  item.identifier.chop + '.' + item[:extension]
+#end
 
 # Do nothing to humans.txt, robots.txt
 compile %r{/(humans)|(robots)/} do
@@ -89,7 +89,7 @@ compile '*' do
   if item.binary?
     # don’t filter binary items
   else
-    # this seems to work fine.
+    # can't select base on identifiers my foot
     case item[:extension]
     when 'html'
       filter :erb
