@@ -3,12 +3,12 @@
 \*------------------------------------*/
 
 /*
- * STYLE CONTENTS .. this
- * EXPLANATION ..... explains element v layout v module v state
- * ELEMENTS ........ styles applied to top-level elements
- * LAYOUTS ......... styles to generate high-level layouts
- * MODULES ......... complete "chunks" of formatting to drop into layouts
- * STATES .......... temporary states
+ * STYLE CONTENTS ............. this
+ * EXPLANATION AND VARIABLES .. explains element v layout v module v state
+ * ELEMENTS ................... styles applied to top-level elements
+ * LAYOUTS .................... styles to generate high-level layouts
+ * MODULES .................... complete "chunks" of formatting to drop into layouts
+ * STATES ..................... temporary states
  */
 
 
@@ -16,7 +16,7 @@
 
 
 /*------------------------------------*\
-    $EXPLANATION
+    $EXPLANATION AND VARIABLES
 \*------------------------------------*/
 
 /*
@@ -37,6 +37,9 @@
  * mostly only affecting LAYOUTS, though in some cases may be
  * relevant to STATES (e.g., no hover on mobile phones).
  */
+
+$black: #222;
+$white: white;
 
 
 
@@ -61,22 +64,22 @@ nav {
 }
 
 table {
-  border: 1px solid black;
+  border: 1px solid $black;
   margin: 0 auto;
   text-align: center;
 }
 
   th {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $black;
   }
 
   tr:nth-of-type(2n) {
-    background-color: #DDD;
+    background-color: darken($white, 10%);
   }
 
   td, th {
     padding: 10px;
-    border-right: 1px solid black;
+    border-right: 1px solid $black;
 
     &:last-of-type { border-right: 0; }
   }
@@ -98,6 +101,9 @@ h3 {}
 h4 {}
 h5 {}
 h6 {}
+
+
+
 
 
 /*------------------------------------*\
