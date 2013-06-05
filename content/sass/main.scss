@@ -99,6 +99,10 @@
 /*------------------------------------*\
     $MEDIA QUERIES
 \*------------------------------------*/
+/*
+ * Although this section is available, better practice would be to
+ * use @include respond-to() within the relevant layout or module style
+ */
 // This partial contains styles for a narrow desktop
 @import "bp-narrow-desktop";
 @include respond-to("narrow") {
