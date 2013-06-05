@@ -1,6 +1,6 @@
-$bp-narrow-desktop: 1210px !default;
-$bp-tablet: 768px !default;
-$bp-mobile-phone: 480px !default;
+$bp-narrow-desktop: 1209px !default;
+$bp-tablet: 767px !default;
+$bp-mobile-phone: 479px !default;
 
 @mixin respond-to($what) {
   $what: quote($what);
