@@ -14,10 +14,10 @@
 #   because “*” matches zero or more characters.
 
 # Do nothing to /sass/, to ignore any partials.
-compile '/sass/*/' do
+compile '/sass/*' do
 end
 
-route '/sass/*/' do
+route '/sass/*' do
   # Comment out the next line to remove /sass/ folder from output
   item.identifier.chop + '.' + item[:extension]
 end
@@ -45,7 +45,7 @@ end
 compile '/js/*' do
 end
 
-route '/js/*/' do
+route '/js/*' do
   item.identifier.chop + '.' + item[:extension]
 end
 
@@ -74,30 +74,11 @@ route '/img/*/' do
 end
 
 # Do nothing to humans.txt, robots.txt
-compile '/humans/' do
+compile %r{/(humans)|(robots)/} do
 end
 
-route '/humans/' do
-  '/humans.txt'
-end
-
-compile '/robots/' do
-end
-
-route '/robots/' do
-  '/robots.txt'
-end
-
-# Compile but do not subdirectory 404.html
-compile '/404/' do
-  filter :erb
-  layout 'default'
-  filter :rubypants
-  filter :relativize_paths, :type => :html
-end
-
-route '/404/' do
-  '/404.html'
+route %r{/(humans)|(robots)/} do
+  item.identifier.chop + '.' + item[:extension]
 end
 
 # And finally deal with our html pages
@@ -121,6 +102,10 @@ compile '*' do
   end
 end
 
+# 404 should not be routed to /404/
+route '/404/' do
+  '/404.html'
+end
 
 route '*' do
   if item.binary?
