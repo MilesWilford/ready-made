@@ -43,11 +43,11 @@ route '/sass/main/', :rep => :minified do
 end
 
 # Move raw js files
-compile '/js/*' do
+compile '/js/*/' do
   nil
 end
 
-route '/js/*' do
+route '/js/*/' do
   item.identifier.chop + '.' + item[:extension]
 end
 
