@@ -51,7 +51,8 @@ $white: white;
 
 html,
 body {
-
+  font-size: 14px;
+  line-height: 1.43; // ~20px
 }
 
 nav {
@@ -64,22 +65,26 @@ nav {
 }
 
 table {
-  border: 1px solid $black;
-  margin: 0 auto;
+  margin: 0 2em;
   text-align: center;
 }
 
   th {
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid darken($white, 20%);
   }
 
-  tr:nth-of-type(2n) {
-    background-color: darken($white, 10%);
+  tbody {
+    tr:nth-of-type(2n-1) {
+      background-color: darken($white, 10%);
+    }
+    tr {
+      &:hover { background-color: darken($white, 20%); }
+    }
   }
 
   td, th {
-    padding: 10px;
-    border-right: 1px solid $black;
+    padding: 0.5em;
+    border-right: 1px solid darken($white, 20%);
 
     &:last-of-type { border-right: 0; }
   }
@@ -93,6 +98,29 @@ dt {
 dd {
   margin-left: 0;
   margin-bottom: 1em;
+}
+
+blockquote {
+  position: relative;
+  padding-left: 1em;
+  margin: 1em 2em;
+  &:before {
+    content: " ";
+    background-color: darken($white, 10%);
+    width: 0.3em;
+    display: block;
+    position: absolute;
+      top: 0.25em;
+      left: 0.25em;
+      bottom: 0.25em;
+  }
+  cite {
+    display: block;
+    font-size: 0.8em;
+    &:before {
+      content: "- ";
+    }
+  }
 }
 
 h1 {}

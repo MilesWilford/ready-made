@@ -6,6 +6,8 @@ title: Some basic default styling
 
 * [Tables](#tables)
 * [Description Lists](#dls)
+* [Addresses](#address)
+* [Blockquotes](#blockquote)
 
 </nav>
 
@@ -36,4 +38,38 @@ Item 2
 Item 3
 :  Some description for item 3
 
+Addresses {#address}
+==============
 
+I use description lists for addresses when possible.
+
+<address markdown="1">
+
+The Fake Address
+: 123 Street Rd.<br />
+  Some City, Some State<br />
+  10000<br />
+  United States
+
+Contact
+:  P: [(555) 555-5555](tel:+15555555555)<br />
+   F: [(555) 555-5555](fax:+15555555555)
+
+*[P:]: Phone
+*[F:]: Fax
+</address>
+
+Blockquotes {#blockquote}
+===============
+
+I use `<cite>` for the citation even if it is a speaker because the W3C's standard
+is [absolute garbage](http://24ways.org/2009/incite-a-riot/) and
+I resolutely reject it.
+
+<blockquote markdown="1">
+
+Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. Integer posuere erat a ante.
+<cite markdown="1">From [lipsum.com](http://www.lipsum.com/)</cite>
+
+</blockquote>
