@@ -1,0 +1,150 @@
+/*
+ * Some content in this section is redundant with normalize.
+ */
+
+html,
+body {
+  font-size: 14px;
+  line-height: 1.43; // ~20px
+}
+
+nav {
+  ul {
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+  }
+}
+
+table {
+  margin: 0 2em;
+  text-align: center;
+}
+
+  th {
+    border-bottom: thin solid darken($white, 20%);
+  }
+
+  tbody {
+    tr:nth-of-type(2n-1) {
+      background-color: darken($white, 10%);
+    }
+    tr {
+      &:hover { background-color: darken($white, 20%); }
+    }
+  }
+
+  td,
+  th {
+    padding: 0.5em;
+    border-right: thin solid darken($white, 20%);
+
+    &:last-of-type { border-right: 0; }
+  }
+
+dl {}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: 1em;
+}
+
+blockquote, pre {
+  position: relative;
+  margin: 1em 2em;
+  &:after {
+    content: " ";
+    background-color: darken($white, 10%);
+    width: 0.3em;
+    display: block;
+    position: absolute;
+      top: 0.25em;
+      left: -0.75em;
+      bottom: 0.25em;
+  }
+  cite {
+    display: block;
+    font-size: 0.8em;
+    &:before {
+      content: "- ";
+    }
+  }
+}
+
+blockquote:before {
+  content: "\201C";
+  font-size: 36px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  position: absolute;
+    top: -10px;
+    left: -35px;
+ z-index: 2; //SHAME
+}
+
+pre[data-lang]:before {
+  content: attr(data-lang);
+  font-weight: bold;
+  width: 110px;
+  height: 20px;
+  border: thin solid darken($white, 20%);
+  text-align: center;
+  position: absolute;
+    top: -22px; // -20 for height, -1 for each border
+    right: 1em;
+}
+
+code, pre {
+  padding: 2px 4px;
+  border: thin solid darken($white, 20%);
+  border-radius: 3px;
+  background-color: darken($white, 5%);
+}
+
+pre code {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 2em;
+  margin: 0.7em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.2em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.85em;
+}
+h6 {
+  font-size: 0.7em;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0.65em;
+}
+
+small {
+  font-size: 0.7em;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
