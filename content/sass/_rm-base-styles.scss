@@ -56,38 +56,38 @@ dd {
 
 blockquote, pre {
   position: relative;
-  margin: 1em 2em;
-  &:after {
-    content: " ";
-    background-color: darken($white, 10%);
-    width: 0.3em;
-    display: block;
-    position: absolute;
-      top: 0.25em;
-      left: -0.75em;
-      bottom: 0.25em;
-  }
-  cite {
+  margin: 2em;
+  cite, i {
     display: block;
     font-size: 0.8em;
+    font-weight: normal;
+    font-style: italic;
     &:before {
       content: "- ";
     }
   }
+  code {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
 }
 
-blockquote:before {
-  content: "\201C";
-  font-size: 36px;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  position: absolute;
-    top: -10px;
-    left: -35px;
- z-index: 2; //SHAME
+blockquote {
+  &:before {
+    content: "\201C";
+    color: darken($white, 10%);
+    font-size: 100px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    position: absolute;
+      top: -40px;
+      left: -20px;
+    z-index: -1;
+  }
 }
 
-pre[data-lang]:before {
-  content: attr(data-lang);
+pre[data-codelang]:before {
+  content: attr(data-codelang);
   font-weight: bold;
   width: 110px;
   height: 20px;
@@ -106,9 +106,6 @@ code, pre {
 }
 
 pre code {
-  padding: 0;
-  border: 0;
-  background-color: transparent;
 }
 
 h1, h2, h3, h4, h5, h6 {

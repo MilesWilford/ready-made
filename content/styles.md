@@ -67,7 +67,7 @@ Blockquotes {#blockquote}
 
 I use `<cite>` for the citation even if it is a speaker because the W3C's standard
 is [absolute garbage](http://24ways.org/2009/incite-a-riot/) and
-I resolutely reject it.
+I resolutely reject it.  But you can use `<i>` the same way, if you want to.
 
 
 
@@ -126,9 +126,9 @@ Code and multi-line code {#code}
 Examples of `<code>` blocks have appeared througought this guide.  Here's a sample of a `<pre>` block:
 
 ~~~~~~~~~~ markdown
-I can also label this code block by setting its "data-lang" attribute to the label I want to use.
-I've given it the microformat class language-markdown for the sake of sytax highlighers,
-which actually appears on the code element.
+I can also label this code block by setting its "data-codelang" attribute to the label I want to use.
+I've given it the microformat class language-markdown for the sake of sytax highlighters,
+which Kramdown places on the <code> element instead of the <pre> element.
 
 h2. Heading 2
 ---------
@@ -141,4 +141,4 @@ h2. Heading 2
 
 ###### h6: Heading 6
 ~~~~~~~~~~~~~~~~~~~~
-{: data-lang="Markdown"}
+{: data-codelang="Markdown"}
