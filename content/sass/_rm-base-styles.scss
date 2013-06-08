@@ -92,9 +92,11 @@ pre[data-codelang]:before {
   width: 110px;
   height: 20px;
   border: thin solid darken($white, 20%);
+  border-bottom: none;
+  overflow: hidden;
   text-align: center;
   position: absolute;
-    top: -22px; // -20 for height, -1 for each border
+    top: -21px; // -20 for height, -1 for the border
     right: 1em;
 }
 
