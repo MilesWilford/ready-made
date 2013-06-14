@@ -69,7 +69,9 @@ $white: white;
 \*------------------------------------*/
 //  .block__element{}
 
-
+.triangle-demo {
+  @include triangle(black, 20px, right);
+}
 
 
 

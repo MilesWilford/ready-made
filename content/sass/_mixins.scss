@@ -20,3 +20,23 @@
         url('#{$font-src}.svg#svgFontName') format('svg');
   }
 }
+
+@mixin triangle($color, $width, $orientation: "up") {
+  $orientation: quote($orientation);
+  $border: "bottom" !default;
+  @if $orientation == "up" {
+    $border: "bottom";
+  } @else if $orientation == "right" {
+    $border: "left";
+  } @else if $orientation == "left" {
+    $border: "right";
+  } @else if $orientation == "down" {
+    $border: "top";
+  }
+  width: 0;
+  height: 0;
+  content: "";
+  border: $width solid transparent;
+  border-#{$border}-color: $color;
+  display: inline-block;
+}
