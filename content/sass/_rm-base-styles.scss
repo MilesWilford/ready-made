@@ -17,32 +17,6 @@ nav {
   }
 }
 
-table {
-  margin: 0 2em;
-  text-align: center;
-}
-
-  th {
-    border-bottom: thin solid darken($white, 20%);
-  }
-
-  tbody {
-    tr:nth-of-type(2n-1) {
-      background-color: darken($white, 10%);
-    }
-    tr {
-      &:hover { background-color: darken($white, 20%); }
-    }
-  }
-
-  td,
-  th {
-    padding: 0.5em;
-    border-right: thin solid darken($white, 20%);
-
-    &:last-of-type { border-right: 0; }
-  }
-
 dl {}
 
 dt {
