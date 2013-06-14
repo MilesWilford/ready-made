@@ -90,9 +90,9 @@ are given only a margin-bottom of 0.65em.
 
 <small markdown="1">The `<small>` tag is available and styled.
 
-*The `<em>` tag is available and styled.*
+*The `<em>` tag is available.*
 
-**The `<strong>` tag is available and styled.**
+**The `<strong>` tag is available.**
 
 Fusce ut fringilla mi. Vestibulum ante ipsum primis in faucibus orci luctus
 et ultrices posuere cubilia Curae; Aliquam hendrerit bibendum metus fringilla
