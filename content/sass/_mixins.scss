@@ -21,6 +21,7 @@
   }
 }
 
+// This mixin turns an element into an inline-block CSS triangle, using borders
 @mixin triangle($color, $width, $orientation: "up") {
   $orientation: quote($orientation);
   $border: "bottom" !default;
@@ -39,4 +40,15 @@
   border: $width solid transparent;
   border-#{$border}-color: $color;
   display: inline-block;
+}
+
+// These mixins are a shorthand for turning an element into a circle or ellipse
+@mixin ellipse($width, $height) {
+  border-radius: 50%;
+  width: $width;
+  height: $height;
+}
+
+@mixin circle($diameter) {
+  @include ellipse($diameter, $diameter);
 }
