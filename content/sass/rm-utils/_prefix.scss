@@ -44,17 +44,17 @@
     -webkit-#{$property}: #{$value};
   }
   @if $moz and $moz != "no moz" {
-    -moz-#{$property}: #{$value};
+       -moz-#{$property}: #{$value};
   }
   @if $ms and $ms != "no ms" {
-    -ms-#{$property}: #{$value};
+        -ms-#{$property}: #{$value};
   }
   // I've elected to remove Opera from this mixin since it uses webkit now.
   // @if $o and $o != "no o" {
-    // -o-#{$property}: #{$value};
+    //      -o-#{$property}: #{$value};
   // }
   @if $official and $official != "no official" {
-    #{$property}: #{$value}
+            #{$property}: #{$value}
   }
 }
 
