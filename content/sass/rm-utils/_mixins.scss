@@ -1,0 +1,61 @@
+/*
+ * helper mixin table of contents
+ *
+ * BULLETPROOF FONT FACE
+ * font-face
+ *
+ * CSS TRIANGLE GENERATOR
+ * triangle
+ *
+ * CSS ELLIPSE GENERATOR
+ * ellipse
+ *
+ * CSS CIRCLE GENERATOR
+ * circle
+ */
+
+// Feed this mixin the font name and the font src WITHOUT a file extension.
+// The following file extensions must be available: .eot, .woff, .ttf, .svg
+@mixin font-face($font-name, $font-src) {
+  $font-name: quote($font-name);
+  $font-src: unquote($font-src);
+
+  @font-face {
+    font-family: $font-name;
+    src: url('#{$font-src}.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-src}.woff') format('woff'),
+        url('#{$font-src}.ttf') format('truetype'),
+        url('#{$font-src}.svg#svgFontName') format('svg');
+  }
+}
+
+// This mixin turns an element into an inline-block CSS triangle, using borders
+@mixin triangle($color, $width, $orientation: "up") {
+  $orientation: quote($orientation);
+  @if $orientation == "right" {
+    $border: "left";
+  } @else if $orientation == "left" {
+    $border: "right";
+  } @else if $orientation == "down" {
+    $border: "top";
+  } @else { // "up" or otherwise
+    $border: "bottom";
+  }
+  width: 0;
+  height: 0;
+  content: "";
+  border: $width solid transparent;
+  border-#{$border}-color: $color;
+  display: inline-block;
+}
+
+// These mixins are a shorthand for turning an element into a circle or ellipse
+@mixin ellipse($width, $height) {
+  border-radius: 50%;
+  width: $width;
+  height: $height;
+}
+
+@mixin circle($diameter) {
+  @include ellipse($diameter, $diameter);
+}
