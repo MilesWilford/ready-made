@@ -35,13 +35,6 @@
     border: 0;
     background: transparent;
   }
-}
-
-%code {
-  padding: 2px 4px;
-  border: thin solid darken($main-bg, 30%);
-  border-radius: 3px;
-  background-color: darken($main-bg, 5%);
   &[data-codelang]:before {
     width: 110px;
     height: 20px;
@@ -55,4 +48,11 @@
       top: -20px; // -20 for height, -1 for the border
       right: 1em;
   }
+}
+
+%code {
+  padding: 2px 4px;
+  border: thin solid darken($main-bg, 30%);
+  border-radius: 3px;
+  background-color: darken($main-bg, 5%);
 }
