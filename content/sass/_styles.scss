@@ -5,10 +5,9 @@
 /*
  * STYLE CONTENTS ............. this
  * EXPLANATION AND VARIABLES .. explains element v layout v module v state
- * ELEMENTS ................... styles applied to top-level elements
+ * BASE STYLES ................ styles applied to top-level elements
  * LAYOUTS .................... styles to generate high-level layouts
- * MODULES .................... complete "chunks" of formatting to drop into layouts
- * STATES ..................... temporary states
+ * MODULES & STATES ........... complete "chunks" of formatting to drop into layouts and their states
  */
 
 
@@ -20,36 +19,112 @@
 \*------------------------------------*/
 
 /*
+ * Style guide:
+ *  2 spaces indentation
+ *  single-line CSS only for single-property declarations, with spaces before and after braces
+ *  sort attributes: box > border > background > text > other
+ *
  * An element is a direct element you're acting on. (e.g., h1, body, html)
  *
  * A layout is the 'shelf' a module goes in.  Layouts should
  * contain positioning information & width definitions, but
- * should be content-agnostic.
+ * should be content-agnostic.  Layouts are prefixed by 'l-'
  *
  * A module styles the element.  Modules should not define widths
  * or positioning.  They should be completely portable.  Dropping a module
  * into any layout item should produce a good effect, within reason.
+ * Modules are unprefixed.
  *
- * A state is something temporary, like a hover or JS interaction
+ * A state is something temporary, like a hover or JS interaction.  A state
+ * is suffixed by '--state'.  A state should be kept with its respective module
  *
  * For media queries, use @include respond-to('device')
- * or use the appropriate _bp partial.  Media queries should be
- * mostly only affecting LAYOUTS, though in some cases may be
- * relevant to STATES (e.g., no hover on mobile phones).
+ * Media queries should be primarily directed at LAYOUTS
  */
 
-$black: #222;
-$white: white;
+$main-fg: #222;
+$main-bg: white;
 
 
 
 
 
 /*------------------------------------*\
-    $ELEMENTS
+    $BASE STYLES
 \*------------------------------------*/
-// Remove me if you don't want any of the ready-made base styles
-@import "rm-base-styles";
+// Body
+html,
+body {
+  background-color: $main-bg;
+  color: $main-fg;
+  font-size: 14px;
+  line-height: 1.43; // ~20px
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.7em 0;
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.2em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.85em;
+}
+h6 {
+  font-size: 0.7em;
+}
+
+// Text
+p {
+  margin: 0;
+  margin-bottom: 0.65em;
+}
+
+small {
+  font-size: 0.7em;
+}
+
+// Common block modules with lousy default styles
+nav {
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+dl {}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: 0.65em;
+}
+
+// From blockdisplay module
+blockquote { @extend %blockquote; }
+pre { @extend %code, %codeblock; }
+code { @extend %code; }
+// End blockdisplay module
 
 
 
@@ -58,27 +133,16 @@ $white: white;
 /*------------------------------------*\
     $LAYOUTS
 \*------------------------------------*/
-//  .block{}
+//  .l-classname {}
 
 
 
 
 
 /*------------------------------------*\
-    $MODULES
+    $MODULES & STATES
 \*------------------------------------*/
-//  .block__element{}
+//  .classname {}
+//  .classname--state-modifier {}
 
-
-
-
-
-/*------------------------------------*\
-    $STATES
-\*------------------------------------*/
-// .block--modifier{}
-// .js-state{}
-
-
-
-
+@import "blockdisplay";

@@ -39,7 +39,7 @@
     $NORMALIZE
 \*------------------------------------*/
 
-@import "normalize";
+@import "utils/normalize";
 
 
 
@@ -50,7 +50,7 @@
 \*------------------------------------*/
 
 // This partial defines default breakpoints and the @respond-to mixin
-@import "breakpoints";
+@import "utils/breakpoints";
 
 
 
@@ -60,7 +60,7 @@
     $PREFIX MIXINS
 \*------------------------------------*/
 
-@import "prefix";
+@import "utils/prefix";
 
 
 
@@ -70,7 +70,7 @@
     $HELPER MIXINS
 \*------------------------------------*/
 
-@import "mixins";
+@import "utils/mixins";
 
 
 
@@ -90,7 +90,7 @@
     $HELPER CLASSES
 \*------------------------------------*/
 
-@import "helpers";
+@import "utils/helpers";
 
 
 
@@ -99,31 +99,9 @@
 /*------------------------------------*\
     $MEDIA QUERIES
 \*------------------------------------*/
-/*
- * Although this section is available, better practice would be to
- * use @include respond-to() within the relevant layout or module style
- */
-// This partial contains styles for a narrow desktop
-@import "bp-narrow-desktop";
-@include respond-to("narrow") {
-  @include bp-narrow-desktop;
-}
-
-// This partial contains styles for a tablet (default under 768px)
-@import "bp-tablet";
-@include respond-to("tablet") {
-  @include bp-tablet;
-}
-
-// This partial contains styles for a mobile phone (default under 420px)
-@import "bp-mobile-phone";
-@include respond-to("phone") {
-  @include bp-mobile-phone;
-}
-
 // This partial contains styles for print, taken from HTML5 boilerplate
 @media print {
-  @import "bp-print";
+  @import "utils/bp-print";
 }
 
 
