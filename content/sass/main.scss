@@ -39,7 +39,7 @@
     $NORMALIZE
 \*------------------------------------*/
 
-@import "utils/normalize";
+@import "rm-utils/normalize";
 
 
 
@@ -50,7 +50,7 @@
 \*------------------------------------*/
 
 // This partial defines default breakpoints and the @respond-to mixin
-@import "utils/breakpoints";
+@import "rm-utils/breakpoints";
 
 
 
@@ -60,7 +60,7 @@
     $PREFIX MIXINS
 \*------------------------------------*/
 
-@import "utils/prefix";
+@import "rm-utils/prefix";
 
 
 
@@ -70,7 +70,7 @@
     $HELPER MIXINS
 \*------------------------------------*/
 
-@import "utils/mixins";
+@import "rm-utils/mixins";
 
 
 
@@ -90,7 +90,7 @@
     $HELPER CLASSES
 \*------------------------------------*/
 
-@import "utils/helpers";
+@import "rm-utils/helpers";
 
 
 
@@ -101,7 +101,7 @@
 \*------------------------------------*/
 // This partial contains styles for print, taken from HTML5 boilerplate
 @media print {
-  @import "utils/bp-print";
+  @import "rm-utils/bp-print";
 }
 
 
