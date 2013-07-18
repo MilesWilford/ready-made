@@ -53,34 +53,11 @@ $main-bg: white;
     $BASE STYLES
 \*------------------------------------*/
 // Body
-html,
+html { font-size: 14px; }
+
 body {
-  background-color: $main-bg;
-  color: $main-fg;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.43; // ~20px
-}
-
-// Headings
-h1, h2, h3, h4, h5, h6 {
-  margin: 0.7em 0;
-  font-size: 2em;
-}
-
-h2 {
-  font-size: 1.5em;
-}
-h3 {
-  font-size: 1.2em;
-}
-h4 {
-  font-size: 1em;
-}
-h5 {
-  font-size: 0.85em;
-}
-h6 {
-  font-size: 0.7em;
 }
 
 // Text
@@ -94,37 +71,11 @@ small {
 }
 
 // Common block modules with lousy default styles
-nav {
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    display: inline-block;
-  }
-}
 
 table {
   width: 100%;
   border-collapse: collapse;
 }
-
-dl {}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 0;
-  margin-bottom: 0.65em;
-}
-
-// From blockdisplay module
-blockquote { @extend %blockquote; }
-pre { @extend %code, %codeblock; }
-code { @extend %code; }
-// End blockdisplay module
 
 
 
@@ -144,8 +95,6 @@ code { @extend %code; }
 \*------------------------------------*/
 //  .classname {}
 //  .classname--state-modifier {}
-
-@import "blockdisplay";
 
 
 
