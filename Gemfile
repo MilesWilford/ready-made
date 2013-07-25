@@ -9,3 +9,5 @@ gem 'rubypants'
 gem 'sass'
 gem 'yuicompressor'
 gem 'mime-types'
+
+gem 'guard-nanoc'
