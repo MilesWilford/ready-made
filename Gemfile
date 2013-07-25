@@ -11,3 +11,6 @@ gem 'yuicompressor'
 gem 'mime-types'
 
 gem 'guard-nanoc'
+# Fix implemented because of windows issues with WDM per: http://stackoverflow.com/questions/16232960/guard-wont-load-wdm
+require 'rbconfig'
+gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
